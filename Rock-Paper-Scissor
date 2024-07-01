@@ -1,0 +1,36 @@
+import random
+
+options = ("rock", "paper", "scissors")
+playing = True
+
+# Get the player's name
+player_name = input("Enter your name: ")
+
+print(f"\nWelcome to Rock, Paper, Scissors, {player_name}!\n")
+
+while playing:
+    player = None
+    computer = random.choice(options)
+
+    while player not in options:
+        player = input(f"{player_name}, enter a choice (rock, paper, scissors): ")
+
+    print(f"\n{player_name}: {player}")
+    print(f"Computer: {computer}")
+
+    if player == computer:
+        print("It's a tie!")
+    elif player == "rock" and computer == "scissors":
+        print("You win!")
+    elif player == "paper" and computer == "rock":
+        print("You win!")
+    elif player == "scissors" and computer == "paper":
+        print("You win!")
+    else:
+        print("You lose!")
+
+    print()  # Add a blank line for spacing
+    if not input("Play again? (y/n): ").lower() == "y":
+        playing = False
+
+print("\n Thanks for playing")
